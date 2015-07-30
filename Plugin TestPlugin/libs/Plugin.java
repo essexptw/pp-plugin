@@ -100,7 +100,7 @@ public interface Plugin {
 
     /**
      * Enter to filesLink.
-     * If filesLin is null, then plugin will return to previous safe state
+     * If filesLink is null, then plugin will return to previous safe state
      * filesLink is String array of 4 elements:
      * array[0] is current files parent folder name or itemNum's folder name
      * array[1] is current files parent folder URL or itemNum's folder URL
