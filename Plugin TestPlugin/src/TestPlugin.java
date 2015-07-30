@@ -185,40 +185,38 @@ public class TestPlugin implements Plugin {
 	public boolean nextPage() {
 		if (nextPageURL == null) return false;
 
-        urlsHistory.add(currURL);
-        currURL = nextPageURL;
+		urlsHistory.add(currURL);
+		currURL = nextPageURL;
 
-        boolean res = refresh();
-        if (res && urls == null) {
-            previousPage();
-            return false;
-        }
-        return res;
-
+		boolean res = refresh();
+		if (res && urls == null) {
+			previousPage();
+			return false;
+		}
+		return res;
 	}
 
 	@Override
 	public boolean previousPage() {
 		if (urlsHistory.size() == 0) return false;
 
-        currURL = urlsHistory.get(urlsHistory.size() - 1);
-        urlsHistory.remove(urlsHistory.size() - 1);
+		currURL = urlsHistory.get(urlsHistory.size() - 1);
+		urlsHistory.remove(urlsHistory.size() - 1);
 
-        return refresh();
-
+		return refresh();
 	}
 
 	@Override
 	public boolean selectItem(int itemNum) {
-		if (urls == null || itemNum < 0 || urls.length <= itemNum || types == null ||
-				types[itemNum] == LINK_TYPE_FILE) return false;
+		if (urls == null || itemNum < 0 || urls.length <= itemNum ||
+				types == null || types[itemNum] == LINK_TYPE_FILE) return false;
 
-        urlsHistory.add(currURL);
-        currURL = urls[itemNum];
+		urlsHistory.add(currURL);
+		currURL = urls[itemNum];
 
-        return refresh();
+		return refresh();
 	}
-	
+
 	@Override
 	public boolean setFilesLink(String[] filesLink) {
 		return false;
